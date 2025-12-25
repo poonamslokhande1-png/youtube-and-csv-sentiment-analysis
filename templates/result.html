@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sentiment Analysis Result</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/Resultstyle.css') }}">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div id="contact">
+  <h1>Sentiment Analysis Result</h1>
+</div>
+
+<div class="container mt-4">
+
+  <div id="chartData"
+       data-values='{{ [pos|int, neg|int, neu|int] | tojson }}'></div>
+
+  <div class="card p-3 mb-4">
+    <h4>Summary</h4>
+    <p>
+      Total: <strong>{{ total }}</strong> |
+      <span class="text-success">Positive: {{ pos }}</span> |
+      <span class="text-danger">Negative: {{ neg }}</span> |
+      <span class="text-secondary">Neutral: {{ neu }}</span>
+    </p>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <canvas id="pieChart"></canvas>
+    </div>
+    <div class="col-md-6">
+      <canvas id="barChart"></canvas>
+    </div>
+  </div>
+
+  <div class="text-center mb-4">
+    <a href="{{ url_for('download', key=download_key) }}"
+       class="btn btn-primary">
+       ⬇ Download Full CSV
+    </a>
+  </div>
+
+  <div class="text-center">
+    <a href="{{ url_for('home') }}" class="btn btn-dark">⬅ Back</a>
+  </div>
+
+</div>
+
+<script>
+  const values = JSON.parse(document.getElementById("chartData").dataset.values);
+  const labels = ["Positive", "Negative", "Neutral"];
+
+  new Chart(document.getElementById("pieChart"), {
+    type: "pie",
+    data: {
+      labels: labels,
+      datasets: [{
+        data: values,
+        backgroundColor: ["#28a745", "#dc3545", "#6c757d"]
+      }]
+    }
+  });
+
+  new Chart(document.getElementById("barChart"), {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "Count",
+        data: values,
+        backgroundColor: ["#28a745", "#dc3545", "#6c757d"]
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

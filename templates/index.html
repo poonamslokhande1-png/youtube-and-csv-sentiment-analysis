@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sentiment Analysis</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/indexstyle.css') }}">
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<h1 class="title text-center mt-4">Sentiment Analysis System</h1>
+
+<div class="container mt-4">
+
+  <!-- CSV Sentiment Analysis -->
+  <div class="card p-4 mb-4">
+    <h5 class="mb-3">📁 CSV Sentiment Analysis</h5>
+
+    <form action="{{ url_for('predict_csv') }}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="csvfile" class="form-control" required>
+      <button class="btn btn-primary mt-3">Analyze CSV</button>
+    </form>
+  </div>
+
+  <!-- YouTube Comment Sentiment Analysis -->
+  <div class="card p-4">
+    <h5 class="mb-3">▶️ YouTube Comment Analysis</h5>
+
+    <form action="{{ url_for('youtube_comments') }}" method="POST">
+      <input type="text"
+             name="youtube_url"
+             class="form-control"
+             placeholder="https://www.youtube.com/watch?v=VIDEO_ID"
+             required>
+
+      <button class="btn btn-danger mt-3">Analyze YouTube Comments</button>
+    </form>
+  </div>
+
+</div>
+
+</body>
+</html>
