@@ -1,0 +1,6 @@
+flask
+pandas
+vaderSentiment
+langdetect
+googletrans==4.0.0rc1
+google-api-python-client
