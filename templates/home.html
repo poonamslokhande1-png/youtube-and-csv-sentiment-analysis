@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Sentiment App{% endblock %}
+
+{% block content %}
+
+<div class="hero-section">
+    
+    <h1 class="hero-title">Sentiment Analysis Web App</h1>
+
+    <p class="hero-subtitle">
+        Analyze text, reviews, or comments and identify
+        <span>Positive</span>, <span>Negative</span>, or <span>Neutral</span> sentiment.
+    </p><br><br><br>
+
+    <div class="hero-buttons">
+        {% if session.get("user") %}
+            <a href="{{ url_for('index') }}" class="btn btn-primary">
+                Go to Dashboard
+            </a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-success">
+                Login
+            </a>
+        {% endif %}
+
+        <a href="{{ url_for('register') }}" class="btn btn-outline">
+            Register
+        </a>
+    </div>
+</div>
+{% endblock %}

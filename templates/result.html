@@ -19,9 +19,11 @@
 
 <div class="container mt-4">
 
+  <!-- Chart Data -->
   <div id="chartData"
        data-values='{{ [pos|int, neg|int, neu|int] | tojson }}'></div>
 
+  <!-- Summary -->
   <div class="card p-3 mb-4">
     <h4>Summary</h4>
     <p>
@@ -32,6 +34,7 @@
     </p>
   </div>
 
+  <!-- Charts -->
   <div class="row mb-4">
     <div class="col-md-6">
       <canvas id="pieChart"></canvas>
@@ -41,13 +44,32 @@
     </div>
   </div>
 
-  <div class="text-center mb-4">
-    <a href="{{ url_for('download', key=download_key) }}"
-       class="btn btn-primary">
-       ⬇ Download Full CSV
+  <!-- CSV DOWNLOAD BUTTONS -->
+  <div class="card p-3 mb-4">
+    <h5 class="mb-3">Download CSV Files</h5>
+
+    <a href="{{ url_for('download_all', key=download_key) }}"
+       class="btn btn-primary mb-2">
+       ⬇ Download All Comments CSV
+    </a>
+
+    <a href="{{ url_for('download_positive', key=download_key) }}"
+       class="btn btn-success mb-2">
+       ⬇ Download Positive Comments CSV
+    </a>
+
+    <a href="{{ url_for('download_negative', key=download_key) }}"
+       class="btn btn-danger mb-2">
+       ⬇ Download Negative Comments CSV
+    </a>
+
+    <a href="{{ url_for('download_neutral', key=download_key) }}"
+       class="btn btn-secondary mb-2">
+       ⬇ Download Neutral Comments CSV
     </a>
   </div>
 
+  <!-- Back -->
   <div class="text-center">
     <a href="{{ url_for('home') }}" class="btn btn-dark">⬅ Back</a>
   </div>

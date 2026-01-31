@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f172a;
+    color: #fff;
+}
+
+/* Navbar */
+.main-header {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+}
+
+.nav-container {
+    width: 90%;
+    margin: auto;
+    padding: 15px 30px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111;
+}
+
+.logo span {
+    color: #e83e8c;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+}
+
+/* Page background */
+.content-bg {
+    min-height: 100vh;
+    padding: 150px 5% 50px;
+    background: linear-gradient(rgba(15,23,42,.8), rgba(15,23,42,.8)),
+                url("../images/analysis.png") center/cover;
+}
+
+/* Hero */
+.hero-section {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.hero-title {
+    font-size: 46px;
+}
+
+.hero-subtitle span {
+    color: #00d4ff;
+}
+
+/* Glass Card */
+.glass-card {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+}
+
+/* Auth */
+.auth-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 35px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Buttons */
+.btn-primary {
+    background: #e83e8c;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 25px;
+    border: none;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 25px;
+}
+
+.btn-outline {
+    border: 2px solid #00d4ff;
+    color: #00d4ff;
+    padding: 10px 25px;
+    border-radius: 30px;
+}
